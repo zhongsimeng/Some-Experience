@@ -199,3 +199,244 @@ Transition滤镜类型。表示使用哪种特效，取值为0-23。
 
 
 
+###name变量
+name是描述网页的，对应于Content（网页内容），以便于搜索引擎机器人查找、分类（目前几乎所有的搜索引擎都使用网上机器人自动查找meta值来给网页分类）。
+
+name的value值（name=）指定所提供信息的类型。有些值是已经定义好的。例如description(说明)、keyword(关键字)、refresh(刷新)等。还可以指定其他任意值，如：creationdate(创建日期) 、document ID(文档编号)和level(等级)等。
+
+name的content指定实际内容。如：如果指定level(等级)为value(值)，则Content可能是beginner(初级)、intermediate(中级)、advanced(高级)。
+
+####1.Keywords(关键字)
+说明：
+
+为搜索引擎提供的关键字列表
+
+用法：
+
+    <Meta name=Keywords Content=关键词1,关键词2，关键词3,关键词4,……>
+    
+注意：
+
+各关键词间用英文逗号“,”隔开。META的通常用处是指定搜索引擎用来提高搜索质量的关键词。当数个META元素提供文档语言从属信息时，搜索引擎会使用lang特性来过滤并通过用户的语言优先参照来显示搜索结果。
+
+例如：
+
+    <Meta name=Kyewords Lang=EN Content=vacation,greece,sunshine>
+    <Meta name=Kyewords Lang=FR Content=vacances,grè:ce,soleil>
+    
+####2.Description（简介）
+说明：
+
+Description用来告诉搜索引擎你的网站主要内容。
+
+用法：
+
+    <Meta name=Description Content=你网页的简述>
+    
+####3.Robots（机器人向导）
+说明：
+
+Robots用来告诉搜索机器人哪些页面需要索引，哪些页面不需要索引。Content的参数有all、none、index、noindex、follow、nofollow。默认是all。
+
+用法：
+
+    <Meta name=Robots Content=All|None|Index|Noindex|Follow|Nofollow>
+    
+注意：
+
+许多搜索引擎都通过放出robot/spider搜索来登录网站，这些robot/spider就要用到meta元素的一些特性来决定怎样登录。
+
+* all：文件将被检索，且页面上的链接可以被查询；
+* none：文件将不被检索，且页面上的链接不可以被查询；(和 noindex, no follow 起相同作用)
+* index：文件将被检索；（让robot/spider登录）
+* follow：页面上的链接可以被查询；
+* noindex：文件将不被检索，但页面上的链接可以被查询；(不让robot/spider登录)
+* nofollow：文件将不被检索，页面上的链接可以被查询。(不让robot/spider顺着此页的连接往下探找)
+
+####4.Author（作者）
+说明：
+
+标注网页的作者或者制作组
+
+用法：
+
+    <Meta name=Author Content=张三，abc@163.com>
+    
+注意：
+
+Content可以是：你或你的制作组的名字,或Email
+
+####6.Generator（编辑器）
+说明：
+
+编辑器的说明
+
+用法：
+
+    <Meta name=Generator Content=PCDATA|FrontPage|>
+    
+注意：
+
+Content=你所用的编辑器
+
+####7.revisit-after（重访）
+说明：
+
+用法：
+
+    <META name=revisit-after CONTENT=7 days >
+    
+###head中的其他一些用法
+####1.scheme（方案）
+说明：
+
+scheme can be used when name is used to specify how the value of content should be interpreted.
+
+用法：
+
+    <meta scheme=ISBN name=identifier content=0-14-043205-1 />
+    
+####2.link（链接）
+说明：
+
+链接文件
+
+用法：
+
+    <Link href=soim.ico rel=Shortcut Icon>
+    
+注意：
+
+很多网站如果你把她保存在收件夹中后，会发现它连带着一个小图标，如果再次点击进入之后还会发现地址栏中也有个小图标。现在只要在你的页头加上这段话，就能轻松实现这一功能。
+
+<LINK> 用来将目前文件与其它 URL 作连结，但不会有连结按钮，用於 <HEAD> 标记间， 格式如下：
+
+    <link href=URL rel=relationship>
+    <link href=URL rev=relationship>
+        
+####base（基链接）
+说明：
+
+插入网页基链接属性
+
+用法：
+
+    <Base href=http://www.***.net/ target=_blank>
+    
+注意：
+
+你网页上的所有相对路径在链接时都将在前面加上“http://www.***.com/”。其中target=_blank是链接文件在新的窗口中打开，你可以做其他设置。将“_blank”改为“_parent”是链接文件将在当前窗口的父级窗口中打开；改为“_self”链接文件在当前窗口（帧）中打开；改为“_top”链接文件全屏显示。
+
+以上是META标签的一些基本用法，其中最重要的就是：Keywords和Description的设定。为什么呢？道理很简单，这两个语句可以让搜索引擎能准确的发现你，吸引更多的人访问你的站点!根据现在流行搜索引擎(Google，Lycos，AltaVista等)的工作原理，搜索引擎先派机器人自动在WWW上搜索，当发现新的网站时，便于检索页面中的Keywords和Description，并将其加入到自己的数据库，然后再根据关键词的密度将网站排序。
+ 
+ 
+    <META http-equiv=Content-Type content="text/html; charset=utf-8">
+    <meta  http-equiv="description" name="description" content="描述">
+    <meta  name="keywords" http-equiv="keywords" content="关键字>">
+
+一般放这三个足已
+
+###meta的使用方法和技巧：
+Meta标签是用来描述网页属性的一种语言，标准的Meta标签可以便于搜索引擎排序，提高搜索引擎网站权重排名。要想网站做的更符合搜索引擎标准就必须了解meta标签。
+
+####1、META标签的keywords
+
+写法为：<meta name="Keywords" content="信息参数" />
+
+meat标签的Keywords的的信息参数，代表说明网站的关键词是什么。
+
+####2、META标签的Description
+
+<meta name="Description" content="信息参数" />
+
+meta标签的Description的信息参数，代表说明网站的主要内容，概况是什么。
+
+####3、META标签的http-equiv=Content-Type content="text/html
+
+http-equiv=Content-Type代表的是HTTP的头部协议，提示浏览器网页的信息，
+
+<meta http-equiv="Content-Type" content="text/html; charset=信息参数" />
+
+meta标签的Description的信息参数如GB2312时，代表说明网站是采用的编码是简体中文；
+
+meta标签的Description的信息参数如BIG5时，代表说明网站是采用的编码是繁体中文；
+
+meta标签的Description的信息参数如iso-2022-jp时，代表说明网站是采用的编码是日文；
+
+meta标签的Description的信息参数如ks_c_5601时，代表说明网站是采用的编码是韩文；
+
+meta标签的Description的信息参数如ISO-8859-1时，代表说明网站是采用的编码是英文；
+
+meta标签的Description的信息参数如UTF-8时，代表世界通用的语言编码；
+
+####4、META标签的generator
+
+<meta name="generator" content="信息参数" />
+
+meta标签的generator的信息参数，代表说明网站的采用的什么软件制作。
+
+####5、META标签的author
+
+<meta name="author" content="信息参数">
+
+meta标签的author的信息参数，代表说明网页版权作者信息。
+
+####6、META标签的http-equiv="Refresh"
+
+<Meta http-equiv="Refresh" Content="时间; Url=网址参数"> 
+
+meta标签的Refresh代表多少时间网页自动刷新，加上Url中的网址参数就代表，多长时间自动链接其他网址。
+
+####7、META标签的HTTP-EQUIV="Pragma" CONTENT="no-cache"
+
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">代表禁止浏览器从本地计算机的缓存中访问页面内容,这样设定，访
+问者将无法脱机浏览。
+
+####8、META标签的COPYRIGHT
+
+<META NAME="COPYRIGHT" CONTENT="信息参数">
+
+meta标签的COPYRIGHT的信息参数，代表说明网站版权信息。
+
+####9、META标签的http-equiv="imagetoolbar"
+
+<meta http-equiv="imagetoolbar" content="false" /> 
+
+指定是否显示图片工具栏，当为false代表不显示，当为true代表显示。
+
+####10、META标签的Content-Script-Type
+
+<Meta http-equiv="Content-Script-Type" Content="text/JavaScript">
+
+W3C网页规范，指明页面中脚本的类型。
+
+####11、META标签的revisit-after
+
+<META name="revisit-after" CONTENT="7 days" > 
+
+revisit-after代表网站重访,7 days代表7天，依此类推。
+
+####12、META标签的Robots
+
+<meta name="Robots" contect="信息参数"> 
+
+Robots代表告诉搜索引擎机器人抓取哪些页面
+
+其中的属性说明如下：
+
+* 信息参数为all：文件将被检索，且页面上的链接可以被查询；
+* 信息参数为none：文件将不被检索，且页面上的链接不可以被查询；
+* 信息参数为index：文件将被检索；
+* 信息参数为follow：页面上的链接可以被查询；
+* 信息参数为noindex：文件将不被检索，但页面上的链接可以被查询；
+* 信息参数为nofollow：文件将不被检索，页面上的链接可以被查询。
+
+####13、META标签的<meta http-equiv="windows-Target" contect="_top">
+
+代表页面在当前窗口中以独立页面显示，可以防止自己的网页被别人当作一个frame页调用,设置有：_blank、_top、_self、_parent。
+
+####14、META标签的set-cookie
+
+<meta http-equiv="set-cookie" contect="Mon,12 May 2001 00:20:00 GMT">
+
+代表Cookie设定，如果网页过期，存盘的cookie将被删除,需要注意的也是必须使用GMT时间格式
